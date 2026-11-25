@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073b42">
+  <meta name="description" content="일상의 쓰레기와 바다 생물의 이야기를 연결하는 환경 교육 체험판">
+  <title>바다에 닿기 전에 · 환경지키기</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="header">
+    <a class="brand" href="#explore" aria-label="바다에 닿기 전에 홈"><span class="brand-icon" aria-hidden="true">≈</span><span>바다에 닿기 전에<small>작은 실천, 살아 있는 바다</small></span></a>
+    <nav aria-label="주 메뉴">
+      <a href="#explore" data-page="explore" aria-current="page">쓰레기 알아보기</a>
+      <a href="#collection" data-page="collection">나의 바다 도감 <span id="nav-count">0</span></a>
+      <a href="#learn" data-page="learn">함께 배우기</a>
+    </nav>
+    <span class="demo-badge">교육용 체험판</span>
+  </header>
+
+  <main id="main">
+    <section id="explore" class="page">
+      <div class="hero">
+        <div class="hero-copy"><p class="eyebrow">OUR OCEAN, OUR EVERYDAY</p><h1>무심코 버린 하나,<br>바다에는 어떤 일이?</h1><p>손안의 쓰레기와 바다 생물의 이야기를 만나보세요.<br>알아보는 순간, 작은 실천이 시작됩니다.</p><a class="hero-link" href="#workspace">내 주변 쓰레기 알아보기</a></div>
+        <div id="hero-art" class="hero-art" aria-hidden="true"></div>
+        <span class="hero-caption">바다를 지키는 일은 우리 곁에서부터.</span>
+      </div>
+
+      <div class="section-heading" id="workspace"><div><p class="eyebrow">DISCOVER & CARE</p><h2>이 쓰레기의 다음 이야기는</h2></div><span>사진 한 장에서 시작하는 환경 수업</span></div>
+      <div class="workspace">
+        <section class="upload-panel panel" aria-labelledby="upload-title">
+          <div class="step-label">쓰레기 살펴보기</div><h3 id="upload-title">어떤 쓰레기를 발견했나요?</h3>
+          <div class="dropzone" id="dropzone">
+            <img id="photo-preview" alt="업로드한 쓰레기 사진" hidden>
+            <div id="upload-placeholder"><span class="upload-icon" aria-hidden="true">＋</span><strong>사진을 올려주세요</strong><p>여기에 끌어 놓거나 아래 버튼으로 선택하세요</p><small>JPG · PNG · WEBP · GIF / 최대 8MB</small></div>
+          </div>
+          <div class="upload-actions"><label class="button secondary" for="file-input">사진 선택<input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,image/gif" class="file-input"></label><label class="button secondary" for="camera-input">카메라 촬영<input id="camera-input" type="file" accept="image/*" capture="environment" class="file-input"></label><button id="remove-photo" class="text-button" hidden>사진 지우기</button></div>
+          <p id="file-status" class="small-note" aria-live="polite">사진은 서버로 전송되지 않습니다.</p>
+          <div class="selection-header"><strong>쓰레기 종류 선택</strong><span>직접 확인해 주세요</span></div>
+          <p class="small-note">현재는 AI 미연동 체험판입니다. 사진을 보고 직접 선택하거나, 사진 없이도 체험할 수 있어요.</p>
+          <fieldset id="category-options"><legend class="sr-only">쓰레기 종류</legend></fieldset>
+          <button class="button primary full" id="show-result" disabled>종류를 선택해 주세요</button>
+          <button class="text-button example" id="try-example">사진 없이 빨대 사례 먼저 보기</button>
+        </section>
+
+        <section class="result-panel panel" aria-labelledby="result-title" aria-live="polite">
+          <div id="result-empty" class="empty-result"><span class="step-label">바다의 이야기 만나기</span><div id="empty-art" aria-hidden="true"></div><p class="eyebrow">A SMALL CHOICE, A BIG DIFFERENCE</p><h3 id="result-title">작은 쓰레기도<br>긴 이야기를 남겨요.</h3><p>왼쪽에서 쓰레기 종류를 고르면<br>피해 사례와 오늘 할 수 있는 실천을 알려드려요.</p><span class="illustration-note">교육용 일러스트 · 실제 피해 사진 아님</span></div>
+          <div id="result-content" hidden>
+            <div class="result-top"><span id="result-kind" class="tag"></span><span id="case-label" class="small-note"></span></div>
+            <div id="case-art" class="case-art"></div>
+            <p class="illustration-note">교육용 일러스트 · 실제 피해 사진 아님</p>
+            <p id="animal-name" class="eyebrow"></p><h3 id="case-title" tabindex="-1"></h3><p id="case-description" class="case-description"></p>
+            <a id="case-source" class="source-link" target="_blank" rel="noopener noreferrer">근거 자료 읽기</a>
+            <div class="action-guides"><section><span class="guide-icon" aria-hidden="true">♧</span><h4>이렇게 배출해요</h4><p id="disposal"></p></section><section><span class="guide-icon" aria-hidden="true">♡</span><h4>다음엔 이렇게</h4><p id="alternative"></p></section></div>
+            <p class="small-note">배출 방법은 지역·재질에 따라 다릅니다. 거주지 지자체 안내를 우선 확인하세요. <a href="https://www.kca.go.kr/smartconsumer/sub.do?menukey=7740" target="_blank" rel="noopener noreferrer">분리배출 참고</a></p>
+            <div class="result-buttons"><button class="button primary" id="save-record">도감에 기록하기</button><button class="button secondary" id="download-card">카드 저장</button><button class="button secondary" id="share-card">공유</button></div>
+          </div>
+        </section>
+      </div>
+      <div class="bottom-message"><span aria-hidden="true">≈</span><div><strong>버리기 전에 한 번, 바다를 떠올려 주세요.</strong><p>필요한 만큼만 사용하고, 사용한 것은 올바르게 배출하기. 오늘의 작은 약속입니다.</p></div><a href="#learn">함께 배우기</a></div>
+    </section>
+
+    <section id="collection" class="page" hidden>
+      <div class="page-intro"><p class="eyebrow">MY OCEAN JOURNAL</p><h1>알아갈수록 가까워지는 바다</h1><p>내가 확인하고 기록한 이야기들을 모았어요.</p></div>
+      <div class="collection-summary panel"><div><strong id="collection-count">0 / 5</strong><span>발견한 쓰레기 종류</span></div><progress id="collection-progress" value="0" max="5" aria-label="도감 수집 진행률"></progress><button class="text-button" id="clear-records" hidden>기록 전체 삭제</button></div>
+      <p class="small-note" id="storage-note">기록은 이 브라우저에만 저장됩니다. 사진은 기록에 저장하지 않습니다.</p>
+      <div id="collection-grid" class="collection-grid"></div>
+      <p class="empty-collection" id="empty-collection">아직 기록이 없어요. 쓰레기 이야기를 확인하고 ‘도감에 기록하기’를 눌러보세요.</p>
+      <a class="button primary" href="#explore">새로운 이야기 만나기</a>
+      <dialog id="delete-dialog"><h2>도감 기록을 모두 지울까요?</h2><p>이 브라우저의 기록이 삭제되며 되돌릴 수 없습니다.</p><div class="dialog-actions"><button class="button secondary" id="cancel-delete">취소</button><button class="button primary" id="confirm-delete">전체 삭제</button></div></dialog>
+    </section>
+
+    <section id="learn" class="page" hidden>
+      <div class="page-intro"><p class="eyebrow">LEARN TOGETHER</p><h1>아는 만큼, 지킬 수 있어요.</h1><p>교실에서도, 해변에서도. 함께 배우고 실천해요.</p></div>
+      <div class="learning-grid"><section class="panel quiz-panel"><span class="tag">바다 지킴이 퀴즈</span><div class="quiz-heading"><h2>우리의 선택을 바꾸는 3문제</h2><span id="quiz-progress">1 / 3</span></div><div id="quiz-area"></div><p id="quiz-feedback" role="status"></p><button class="button primary" id="quiz-next" hidden>다음 문제</button></section>
+      <section class="panel activity-panel"><span class="tag">20분 활동 가이드</span><h2>오늘은 우리 반이 바다 지킴이</h2><ol class="activity-list"><li><span>5분</span><div><strong>주변을 관찰해요</strong><p>교실이나 해변에서 자주 보이는 쓰레기 종류를 찾아보세요.</p></div></li><li><span>5분</span><div><strong>이야기를 연결해요</strong><p>앱에서 종류를 골라 피해 사례와 배출 방법을 살펴보세요.</p></div></li><li><span>5분</span><div><strong>서로의 생각을 나눠요</strong><p>이 쓰레기를 줄이려면 무엇을 바꿀 수 있을까요?</p></div></li><li><span>5분</span><div><strong>작은 약속을 정해요</strong><p>이번 주에 할 수 있는 실천 하나를 정해 발표해 보세요.</p></div></li></ol><p class="activity-note">야외 활동은 보호자·교사의 안내 아래 진행하세요. 장갑을 착용하고, 날카로운 물건이나 동물에 걸린 낚싯줄은 직접 만지지 마세요.</p><button class="button secondary" id="print-guide">활동 가이드 인쇄</button></section></div>
+    </section>
+  </main>
+  <footer><a class="footer-brand" href="#explore">≈ 바다에 닿기 전에</a><span>우리의 일상이 바다의 내일이 되니까.</span><span>AI 미연동 · 브라우저 내 체험판</span></footer>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
